@@ -121,6 +121,7 @@ public class MainProgram extends javax.swing.JFrame{
         YearInput = new javax.swing.JSpinner();
         RelationP = new javax.swing.JLabel();
         RelationInputP = new javax.swing.JTextField();
+        EmailButton = new javax.swing.JButton();
         TimetablePage = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         TimetableTable = new javax.swing.JTable();
@@ -399,6 +400,13 @@ public class MainProgram extends javax.swing.JFrame{
 
         RelationP.setText("Relation");
 
+        EmailButton.setText("Email");
+        EmailButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EmailButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout StudentProfilePageLayout = new javax.swing.GroupLayout(StudentProfilePage);
         StudentProfilePage.setLayout(StudentProfilePageLayout);
         StudentProfilePageLayout.setHorizontalGroup(
@@ -519,7 +527,9 @@ public class MainProgram extends javax.swing.JFrame{
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(EditButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(SaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(SaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(EmailButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(StudentProfilePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -542,7 +552,8 @@ public class MainProgram extends javax.swing.JFrame{
                             .addGroup(StudentProfilePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(EditButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(SaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(NewStudentButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(NewStudentButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(EmailButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(StudentProfilePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(StudentProfilePageLayout.createSequentialGroup()
                                 .addGap(96, 96, 96)
@@ -944,6 +955,15 @@ public class MainProgram extends javax.swing.JFrame{
     private void SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveButtonActionPerformed
         saveStudentEdits();
     }//GEN-LAST:event_SaveButtonActionPerformed
+
+    private void EmailButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmailButtonActionPerformed
+        
+        ArrayList<Integer> idarr = new ArrayList<>();
+        idarr.add(StudentDropdown.getSelectedIndex());
+        AutomatedEmailingSystem AES = new AutomatedEmailingSystem(idarr);
+        AES.setVisible(true);
+        
+    }//GEN-LAST:event_EmailButtonActionPerformed
    
     private void newPage(String Page){
         HomeButton.setEnabled(true);
@@ -1451,6 +1471,7 @@ public class MainProgram extends javax.swing.JFrame{
     private javax.swing.JTextField EmailAddressInput;
     private javax.swing.JTextField EmailAddressInputP;
     private javax.swing.JLabel EmailAddressP;
+    private javax.swing.JButton EmailButton;
     private javax.swing.JLabel FirstName;
     private javax.swing.JTextField FirstNameInput;
     private javax.swing.JTextField FirstNameInputP;
