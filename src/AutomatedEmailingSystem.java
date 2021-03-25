@@ -40,6 +40,7 @@ public class AutomatedEmailingSystem extends javax.swing.JFrame {
         FarewellDropdown.addItem("No Farewell");
         FarewellDropdown.addItem("Best Wishes");
         FarewellDropdown.addItem("Regards");
+        FarewellDropdown.addItem("Sincerely");
                 
     }
     
