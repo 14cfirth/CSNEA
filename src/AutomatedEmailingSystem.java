@@ -8,16 +8,42 @@
  *
  * @author 14cfirth
  */
-public class AutomatedEmailingSystem extends javax.swing.JPanel {
+public class AutomatedEmailingSystem extends javax.swing.JFrame {
 
     /**
-     * Creates new form NewJPanel
+     * Creates new form AutomatedEmailingSystem
      */
     public AutomatedEmailingSystem() {
         initComponents();
         initOtherComp();
     }
 
+        private void initOtherComp(){
+        
+        //JFrame jf = new JFrame();
+        //jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        ParentOrStudentDropdown.removeAllItems();
+        GreetingDropdown.removeAllItems();
+        FarewellDropdown.removeAllItems();
+        
+        ParentOrStudentDropdown.addItem("Parents");
+        ParentOrStudentDropdown.addItem("Students");
+        
+        GreetingDropdown.addItem("No Greeting");
+        GreetingDropdown.addItem("Dear");
+        GreetingDropdown.addItem("To");
+        GreetingDropdown.addItem("Hi");
+        GreetingDropdown.addItem("Good Morning");
+        GreetingDropdown.addItem("Good Afternoon");
+        
+        FarewellDropdown.addItem("No Farewell");
+        FarewellDropdown.addItem("Best Wishes");
+        FarewellDropdown.addItem("Regards");
+        FarewellDropdown.addItem("");
+                
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,41 +53,43 @@ public class AutomatedEmailingSystem extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        ParentOrStudentDropdown = new javax.swing.JComboBox<>();
+        GreetingTextField = new javax.swing.JTextField();
+        GreetingDropdown = new javax.swing.JComboBox<>();
         EmailScrollPane = new javax.swing.JScrollPane();
         EmailMessageTextArea = new javax.swing.JTextArea();
-        SendEmailButton = new javax.swing.JButton();
         TitleLabel = new javax.swing.JLabel();
-        GreetingDropdown = new javax.swing.JComboBox<>();
-        GreetingTextField = new javax.swing.JTextField();
-        FarewellDropdown = new javax.swing.JComboBox<>();
-        FarewellTextField = new javax.swing.JTextField();
+        ParentOrStudentDropdown = new javax.swing.JComboBox<>();
         InfoButton = new javax.swing.JButton();
+        FarewellTextField = new javax.swing.JTextField();
+        FarewellDropdown = new javax.swing.JComboBox<>();
+        SendEmailButton = new javax.swing.JButton();
 
-        ParentOrStudentDropdown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        GreetingTextField.setText("jTextField2");
+
+        GreetingDropdown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         EmailMessageTextArea.setColumns(20);
         EmailMessageTextArea.setRows(5);
         EmailScrollPane.setViewportView(EmailMessageTextArea);
 
-        SendEmailButton.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        SendEmailButton.setText("Send Email");
-
         TitleLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         TitleLabel.setText("Automated Emailing System");
 
-        GreetingDropdown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        GreetingTextField.setText("jTextField2");
-
-        FarewellDropdown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        FarewellTextField.setText("jTextField2");
+        ParentOrStudentDropdown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         InfoButton.setText("?");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        FarewellTextField.setText("jTextField2");
+
+        FarewellDropdown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        SendEmailButton.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        SendEmailButton.setText("Send Email");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -93,7 +121,7 @@ public class AutomatedEmailingSystem extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(TitleLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(InfoButton, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                    .addComponent(InfoButton, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
                     .addComponent(ParentOrStudentDropdown, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -109,12 +137,43 @@ public class AutomatedEmailingSystem extends javax.swing.JPanel {
                 .addComponent(SendEmailButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void initOtherComp(){
-        ParentOrStudentDropdown.removeAllItems();
-        GreetingDropdown.removeAllItems();
-        FarewellDropdown.removeAllItems();
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(AutomatedEmailingSystem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(AutomatedEmailingSystem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(AutomatedEmailingSystem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(AutomatedEmailingSystem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new AutomatedEmailingSystem().setVisible(true);
+            }
+        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
