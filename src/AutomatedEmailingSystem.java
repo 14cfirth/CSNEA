@@ -1,3 +1,6 @@
+
+import javax.swing.JFrame;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -20,8 +23,7 @@ public class AutomatedEmailingSystem extends javax.swing.JFrame {
 
         private void initOtherComp(){
         
-        //JFrame jf = new JFrame();
-        //jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         ParentOrStudentDropdown.removeAllItems();
         GreetingDropdown.removeAllItems();
