@@ -23,9 +23,27 @@ public class AutomatedEmailingSystem extends javax.swing.JFrame {
     public AutomatedEmailingSystem(ArrayList<Integer> IDArray) {
         initComponents();
         initOtherComp();
-        
         IDArr = IDArray;
     }
+    public AutomatedEmailingSystem(int[] IDArray) {
+        initComponents();
+        initOtherComp();
+        for(int i = 0; i<IDArray.length; i++){
+            IDArr.add(IDArray[i]);
+        }
+    }
+    public AutomatedEmailingSystem(int i) {
+        initComponents();
+        initOtherComp();
+        IDArr.add(i);
+    }
+    public AutomatedEmailingSystem() {
+        initComponents();
+        initOtherComp();
+    }
+    
+    
+    
 
         private void initOtherComp(){
         
@@ -181,7 +199,7 @@ public class AutomatedEmailingSystem extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AutomatedEmailingSystem(null).setVisible(true);
+                new AutomatedEmailingSystem().setVisible(true);
             }
         });
     }
