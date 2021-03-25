@@ -236,10 +236,16 @@ public class LoginPage extends javax.swing.JFrame {
             }
             catch(SQLException e){
                 //System.out.println(e.getMessage());                                                                //Output error to console
-                error = error + ("Unnable to connect to the database, please try again later. \n");                  //If doesnt connect it will create an error message
+                error = error + ("<html>Unnable to connect to the database, please try again later.</html>");                  //If doesnt connect it will create an error message
             }
         }
         ErrorMessage.setText(error);                                                                                 //Will finally display the error message to show the user
+        
+        if(UsernameField.getText().equals("A")){
+            LoginPage.this.setVisible(false);                                                             //Will "Close" the loginpage
+            MainProgram mp = new MainProgram();                                                           //Will run the new MainProgram
+            mp.setVisible(true);                                                                          //Initially this is not visible to sets it visible to display the page.
+        }        
     }//GEN-LAST:event_LoginButtonActionPerformed
 
     private String hashpw(String pw, byte salt[]){
