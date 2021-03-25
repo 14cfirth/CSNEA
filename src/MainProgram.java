@@ -958,7 +958,9 @@ public class MainProgram extends javax.swing.JFrame{
 
     private void EmailButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmailButtonActionPerformed
         
-        AutomatedEmailingSystem AES = new AutomatedEmailingSystem();
+        ArrayList<Integer> idarr = new ArrayList<>();
+        idarr.add(StudentDropdown.getSelectedIndex());
+        AutomatedEmailingSystem AES = new AutomatedEmailingSystem(idarr);
         AES.setVisible(true);
         System.out.println("hdSA");
         

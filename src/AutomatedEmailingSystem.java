@@ -1,3 +1,7 @@
+
+import java.util.ArrayList;
+import javax.swing.JFrame;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -13,15 +17,19 @@ public class AutomatedEmailingSystem extends javax.swing.JFrame {
     /**
      * Creates new form AutomatedEmailingSystem
      */
-    public AutomatedEmailingSystem() {
+    
+    private ArrayList<Integer> IDArr = new ArrayList<>();
+    
+    public AutomatedEmailingSystem(ArrayList<Integer> IDArray) {
         initComponents();
         initOtherComp();
+        
+        IDArr = IDArray;
     }
 
         private void initOtherComp(){
         
-        //JFrame jf = new JFrame();
-        //jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         ParentOrStudentDropdown.removeAllItems();
         GreetingDropdown.removeAllItems();
@@ -40,7 +48,10 @@ public class AutomatedEmailingSystem extends javax.swing.JFrame {
         FarewellDropdown.addItem("No Farewell");
         FarewellDropdown.addItem("Best Wishes");
         FarewellDropdown.addItem("Regards");
-                
+        FarewellDropdown.addItem("Sincerely");        
+        
+        
+        
     }
     
     /**
@@ -170,7 +181,7 @@ public class AutomatedEmailingSystem extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AutomatedEmailingSystem().setVisible(true);
+                new AutomatedEmailingSystem(null).setVisible(true);
             }
         });
     }
