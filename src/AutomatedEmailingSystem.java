@@ -1,4 +1,5 @@
 
+import java.util.ArrayList;
 import javax.swing.JFrame;
 
 /*
@@ -16,9 +17,14 @@ public class AutomatedEmailingSystem extends javax.swing.JFrame {
     /**
      * Creates new form AutomatedEmailingSystem
      */
-    public AutomatedEmailingSystem() {
+    
+    private ArrayList<Integer> IDArr = new ArrayList<>();
+    
+    public AutomatedEmailingSystem(ArrayList<Integer> IDArray) {
         initComponents();
         initOtherComp();
+        
+        IDArr = IDArray;
     }
 
         private void initOtherComp(){
@@ -42,8 +48,10 @@ public class AutomatedEmailingSystem extends javax.swing.JFrame {
         FarewellDropdown.addItem("No Farewell");
         FarewellDropdown.addItem("Best Wishes");
         FarewellDropdown.addItem("Regards");
-        FarewellDropdown.addItem("Sincerely");
-                
+        FarewellDropdown.addItem("Sincerely");        
+        
+        
+        
     }
     
     /**
@@ -173,7 +181,7 @@ public class AutomatedEmailingSystem extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AutomatedEmailingSystem().setVisible(true);
+                new AutomatedEmailingSystem(null).setVisible(true);
             }
         });
     }
