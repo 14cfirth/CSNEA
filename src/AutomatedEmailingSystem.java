@@ -42,9 +42,6 @@ public class AutomatedEmailingSystem extends javax.swing.JFrame {
         initComponents();
         initOtherComp();
     }
-    
-    
-    
 
         private void initOtherComp(){
         
@@ -68,6 +65,9 @@ public class AutomatedEmailingSystem extends javax.swing.JFrame {
         FarewellDropdown.addItem("Best Wishes");
         FarewellDropdown.addItem("Regards");
         FarewellDropdown.addItem("Sincerely");
+        
+        GreetingTextField.setEnabled(false);
+        FarewellTextField.setEnabled(false);
     }
     
     /**
@@ -177,19 +177,18 @@ public class AutomatedEmailingSystem extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void SendEmailButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SendEmailButtonActionPerformed
-        if(!EmailMessageTextArea.getText().matches("\\s+")){
+        
+        if(!EmailMessageTextArea.getText().matches("\\s+") && (!EmailMessageTextArea.getText().equals(""))){
             SendEmail();
         }
         else{
             ErrorMessage.setForeground(Color.RED);
-            ErrorMessage.setText("Cannot send blank emails");
+            ErrorMessage.setText("Cannot send blank emails!");
         }
     }//GEN-LAST:event_SendEmailButtonActionPerformed
 
     private void SendEmail(){
         try{
-            
-            
             ErrorMessage.setForeground(Color.GREEN);
             ErrorMessage.setText("Email(s) Sent!");
         }
