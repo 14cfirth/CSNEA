@@ -1,4 +1,5 @@
 
+import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 
@@ -66,10 +67,7 @@ public class AutomatedEmailingSystem extends javax.swing.JFrame {
         FarewellDropdown.addItem("No Farewell");
         FarewellDropdown.addItem("Best Wishes");
         FarewellDropdown.addItem("Regards");
-        FarewellDropdown.addItem("Sincerely");        
-        
-        
-        
+        FarewellDropdown.addItem("Sincerely");
     }
     
     /**
@@ -91,6 +89,7 @@ public class AutomatedEmailingSystem extends javax.swing.JFrame {
         FarewellTextField = new javax.swing.JTextField();
         FarewellDropdown = new javax.swing.JComboBox<>();
         SendEmailButton = new javax.swing.JButton();
+        ErrorMessage = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -115,6 +114,11 @@ public class AutomatedEmailingSystem extends javax.swing.JFrame {
 
         SendEmailButton.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         SendEmailButton.setText("Send Email");
+        SendEmailButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SendEmailButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -124,7 +128,6 @@ public class AutomatedEmailingSystem extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(EmailScrollPane)
-                    .addComponent(SendEmailButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -140,7 +143,9 @@ public class AutomatedEmailingSystem extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(GreetingTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(InfoButton)))
+                        .addComponent(InfoButton))
+                    .addComponent(SendEmailButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ErrorMessage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -149,7 +154,7 @@ public class AutomatedEmailingSystem extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(TitleLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(InfoButton, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                    .addComponent(InfoButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(ParentOrStudentDropdown, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -162,6 +167,8 @@ public class AutomatedEmailingSystem extends javax.swing.JFrame {
                     .addComponent(FarewellDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(FarewellTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(11, 11, 11)
+                .addComponent(ErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(SendEmailButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -169,6 +176,29 @@ public class AutomatedEmailingSystem extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void SendEmailButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SendEmailButtonActionPerformed
+        if(!EmailMessageTextArea.getText().matches("\\s+")){
+            SendEmail();
+        }
+        else{
+            ErrorMessage.setForeground(Color.RED);
+            ErrorMessage.setText("Cannot send blank emails");
+        }
+    }//GEN-LAST:event_SendEmailButtonActionPerformed
+
+    private void SendEmail(){
+        try{
+            
+            
+            ErrorMessage.setForeground(Color.GREEN);
+            ErrorMessage.setText("Email(s) Sent!");
+        }
+        catch(Exception ex){
+            
+        }
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -207,6 +237,7 @@ public class AutomatedEmailingSystem extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea EmailMessageTextArea;
     private javax.swing.JScrollPane EmailScrollPane;
+    private javax.swing.JLabel ErrorMessage;
     private javax.swing.JComboBox<String> FarewellDropdown;
     private javax.swing.JTextField FarewellTextField;
     private javax.swing.JComboBox<String> GreetingDropdown;

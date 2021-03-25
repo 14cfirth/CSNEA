@@ -962,7 +962,6 @@ public class MainProgram extends javax.swing.JFrame{
         idarr.add(StudentDropdown.getSelectedIndex());
         AutomatedEmailingSystem AES = new AutomatedEmailingSystem(idarr);
         AES.setVisible(true);
-        System.out.println("hdSA");
         
     }//GEN-LAST:event_EmailButtonActionPerformed
    
